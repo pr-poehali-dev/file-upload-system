@@ -1,4 +1,4 @@
-import { Github, Twitter, Linkedin, Mail } from "lucide-react"
+import Icon from "@/components/ui/icon"
 
 export function Footer() {
   return (
@@ -7,24 +7,24 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
-            <h2 className="font-orbitron text-2xl font-bold text-white mb-4">
-              Synapse<span className="text-red-500">AI</span>
-            </h2>
+            <div className="flex items-center gap-2 mb-4">
+              <img src="/logo.png" alt="MajesticGuard" className="h-8 w-auto" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }} />
+              <h2 className="font-orbitron text-2xl font-bold text-white">
+                Majestic<span className="text-red-500">Guard</span>
+              </h2>
+            </div>
             <p className="font-space-mono text-gray-300 mb-6 max-w-md">
-              Продвигаем будущее нейросвязи с передовыми технологиями интерфейса мозг-компьютер.
+              Профессиональная утилита проверки на читы. Честная игра — для каждого сервера и турнира.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-red-500 transition-colors duration-200">
-                <Twitter size={20} />
+              <a href="mailto:majesticguard@gmail.com" className="text-gray-400 hover:text-red-500 transition-colors duration-200" title="Email">
+                <Icon name="Mail" size={20} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-red-500 transition-colors duration-200">
-                <Github size={20} />
+              <a href="https://t.me/majesticguard" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-500 transition-colors duration-200" title="Telegram">
+                <Icon name="Send" size={20} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-red-500 transition-colors duration-200">
-                <Linkedin size={20} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-red-500 transition-colors duration-200">
-                <Mail size={20} />
+              <a href="https://discord.gg/sB6EjBdn" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-500 transition-colors duration-200" title="Discord">
+                <Icon name="MessageSquare" size={20} />
               </a>
             </div>
           </div>
@@ -34,62 +34,45 @@ export function Footer() {
             <h3 className="font-orbitron text-white font-semibold mb-4">Продукт</h3>
             <ul className="space-y-2">
               <li>
-                <a
-                  href="#technology"
-                  className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200"
-                >
-                  Технологии
+                <a href="#features" className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200">
+                  Возможности
                 </a>
               </li>
               <li>
-                <a
-                  href="#applications"
-                  className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200"
-                >
-                  Применения
+                <a href="#how-it-works" className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200">
+                  Как это работает
                 </a>
               </li>
               <li>
-                <a
-                  href="#safety"
-                  className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200"
-                >
-                  Безопасность
+                <a href="#download" className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200">
+                  Скачать
                 </a>
               </li>
               <li>
-                <a
-                  href="#faq"
-                  className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200"
-                >
+                <a href="#faq" className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200">
                   Вопросы
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Company */}
+          {/* Contacts */}
           <div>
-            <h3 className="font-orbitron text-white font-semibold mb-4">Компания</h3>
+            <h3 className="font-orbitron text-white font-semibold mb-4">Связь</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200">
-                  О нас
+                <a href="mailto:majesticguard@gmail.com" className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200">
+                  majesticguard@gmail.com
                 </a>
               </li>
               <li>
-                <a href="#" className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200">
-                  Карьера
+                <a href="https://t.me/majesticguard" target="_blank" rel="noopener noreferrer" className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200">
+                  Telegram
                 </a>
               </li>
               <li>
-                <a href="#" className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200">
-                  Пресса
-                </a>
-              </li>
-              <li>
-                <a href="#" className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200">
-                  Контакты
+                <a href="https://discord.gg/sB6EjBdn" target="_blank" rel="noopener noreferrer" className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200">
+                  Discord
                 </a>
               </li>
             </ul>
@@ -99,25 +82,13 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-8 pt-8 border-t border-red-500/20">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="font-space-mono text-gray-400 text-sm">2025 SynapseAI. Все права защищены.</p>
+            <p className="font-space-mono text-gray-400 text-sm">© 2025 MajesticGuard. Все права защищены.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a
-                href="#"
-                className="font-space-mono text-gray-400 hover:text-red-500 text-sm transition-colors duration-200"
-              >
+              <a href="#" className="font-space-mono text-gray-400 hover:text-red-500 text-sm transition-colors duration-200">
                 Конфиденциальность
               </a>
-              <a
-                href="#"
-                className="font-space-mono text-gray-400 hover:text-red-500 text-sm transition-colors duration-200"
-              >
+              <a href="#" className="font-space-mono text-gray-400 hover:text-red-500 text-sm transition-colors duration-200">
                 Условия использования
-              </a>
-              <a
-                href="#"
-                className="font-space-mono text-gray-400 hover:text-red-500 text-sm transition-colors duration-200"
-              >
-                Cookie-политика
               </a>
             </div>
           </div>

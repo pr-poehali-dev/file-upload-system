@@ -3,51 +3,51 @@ import { Badge } from "@/components/ui/badge"
 
 const features = [
   {
-    title: "Адаптивная нейрообработка",
-    description: "Самооптимизирующиеся алгоритмы, которые обучаются на нейронных паттернах и улучшают интерпретацию сигналов.",
-    icon: "brain",
-    badge: "ИИ",
+    title: "Обнаружение читов в реальном времени",
+    description: "Мгновенный анализ процессов и памяти игры. Выявляем аимботы, валлхаки, спидхаки и другие нечестные инструменты.",
+    icon: "target",
+    badge: "Реальное время",
   },
   {
-    title: "Медицинская защита",
-    description: "Шифрование по стандартам FDA со сквозной защитой конфиденциальных нейронных данных.",
+    title: "Глубокий системный анализ",
+    description: "Сканирование на уровне ядра операционной системы — читы не могут спрятаться от MajesticGuard.",
     icon: "lock",
-    badge: "Сертификат",
+    badge: "Ядро ОС",
   },
   {
-    title: "Интуитивное управление",
-    description: "Естественная трансляция мыслей в действия с откликом менее миллисекунды и точностью 99,7%.",
-    icon: "globe",
+    title: "Точность 99.9%",
+    description: "Минимум ложных срабатываний. Честные игроки не пострадают — банятся только реальные читеры.",
+    icon: "zap",
     badge: "Точность",
   },
   {
-    title: "Предиктивная калибровка",
-    description: "ML-модели, которые предугадывают намерения пользователя и оптимизируют нейронные пути.",
-    icon: "zap",
-    badge: "Умный",
-  },
-  {
-    title: "Биометрическая интеграция",
-    description: "Бесшовная синхронизация с мониторингом жизненных показателей для контроля здоровья.",
+    title: "Простая интеграция",
+    description: "Подключается к игровому серверу за считанные минуты. Поддержка популярных игровых движков и платформ.",
     icon: "link",
-    badge: "Связь",
+    badge: "Простота",
   },
   {
-    title: "Поддержка XR",
-    description: "Нативная совместимость с AR/VR-средами для терапевтических и рабочих приложений.",
-    icon: "target",
-    badge: "XR Ready",
+    title: "Облачная база данных сигнатур",
+    description: "Регулярные обновления базы известных читов. Новые угрозы нейтрализуются сразу после обнаружения.",
+    icon: "globe",
+    badge: "Обновления",
+  },
+  {
+    title: "Детальные отчёты",
+    description: "Полная информация о нарушениях: время, тип чита, скриншоты, логи — всё для справедливого решения.",
+    icon: "brain",
+    badge: "Аналитика",
   },
 ]
 
 export function FeaturesSection() {
   return (
-    <section className="py-24 px-6 bg-background">
+    <section id="features" className="py-24 px-6 bg-background">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4 font-sans">Возможности нового поколения</h2>
+          <h2 className="text-4xl font-bold text-foreground mb-4 font-sans">Возможности MajesticGuard</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Почувствуйте будущее с технологиями, которые переопределяют возможное
+            Передовые технологии защиты игрового процесса от нечестных участников
           </p>
         </div>
 
@@ -61,9 +61,9 @@ export function FeaturesSection() {
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-3xl">
-                    {feature.icon === "brain" && "&#129504;"}
+                    {feature.icon === "brain" && "&#128202;"}
                     {feature.icon === "lock" && "&#128274;"}
-                    {feature.icon === "globe" && "&#127760;"}
+                    {feature.icon === "globe" && "&#9729;"}
                     {feature.icon === "zap" && "&#9889;"}
                     {feature.icon === "link" && "&#128279;"}
                     {feature.icon === "target" && "&#127919;"}

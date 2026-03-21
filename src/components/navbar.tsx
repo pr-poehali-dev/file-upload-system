@@ -10,9 +10,10 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 flex items-center gap-2">
+            <img src="/logo.png" alt="MajesticGuard" className="h-8 w-auto" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }} />
             <h1 className="font-orbitron text-xl font-bold text-white">
-              Synapse<span className="text-red-500">AI</span>
+              Majestic<span className="text-red-500">Guard</span>
             </h1>
           </div>
 
@@ -20,13 +21,16 @@ export function Navbar() {
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
               <a
-                href="#technology"
+                href="#features"
                 className="font-geist text-white hover:text-red-500 transition-colors duration-200"
               >
-                Технологии
+                Возможности
               </a>
-              <a href="#safety" className="font-geist text-white hover:text-red-500 transition-colors duration-200">
-                Безопасность
+              <a href="#how-it-works" className="font-geist text-white hover:text-red-500 transition-colors duration-200">
+                Как это работает
+              </a>
+              <a href="#download" className="font-geist text-white hover:text-red-500 transition-colors duration-200">
+                Скачать
               </a>
               <a href="#faq" className="font-geist text-white hover:text-red-500 transition-colors duration-200">
                 Вопросы
@@ -36,7 +40,7 @@ export function Navbar() {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button className="bg-red-500 hover:bg-red-600 text-white font-geist border-0">В лист ожидания</Button>
+            <Button onClick={() => document.getElementById('download')?.scrollIntoView({behavior:'smooth'})} className="bg-red-500 hover:bg-red-600 text-white font-geist border-0">Скачать</Button>
           </div>
 
           {/* Mobile menu button */}
@@ -55,18 +59,25 @@ export function Navbar() {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-black/98 border-t border-red-500/20">
               <a
-                href="#technology"
+                href="#features"
                 className="block px-3 py-2 font-geist text-white hover:text-red-500 transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
-                Технологии
+                Возможности
               </a>
               <a
-                href="#safety"
+                href="#how-it-works"
                 className="block px-3 py-2 font-geist text-white hover:text-red-500 transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
-                Безопасность
+                Как это работает
+              </a>
+              <a
+                href="#download"
+                className="block px-3 py-2 font-geist text-white hover:text-red-500 transition-colors duration-200"
+                onClick={() => setIsOpen(false)}
+              >
+                Скачать
               </a>
               <a
                 href="#faq"
@@ -77,7 +88,7 @@ export function Navbar() {
               </a>
               <div className="px-3 py-2">
                 <Button className="w-full bg-red-500 hover:bg-red-600 text-white font-geist border-0">
-                  В лист ожидания
+                  Скачать
                 </Button>
               </div>
             </div>

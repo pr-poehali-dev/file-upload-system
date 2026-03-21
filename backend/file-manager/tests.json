@@ -1,0 +1,12 @@
+{
+  "tests": [
+    {
+      "name": "Get file info",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {"available": false},
+      "bodyMatcher": "partial"
+    }
+  ]
+}
