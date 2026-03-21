@@ -1,18 +1,11 @@
-import { useState, useEffect, useRef } from "react"
+import { useState, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Icon from "@/components/ui/icon"
 
 const API_URL = "https://functions.poehali.dev/2242875f-f8dd-483d-a92f-7946831c6a7f"
 const ADMIN_TOKEN = "majestic-admin-secret"
-
-interface FileInfo {
-  available: boolean
-  filename: string | null
-  download_url: string | null
-  size?: number
-  last_modified?: string
-}
+const DIRECT_DOWNLOAD_URL = "https://cdn.poehali.dev/projects/eea8f320-1313-42a5-8be1-daffe69a5405/bucket/2d00d33a-dc83-4fe3-9d4c-b1349a9ed3e1.rar"
 
 function formatSize(bytes: number): string {
   if (bytes < 1024) return `${bytes} B`
@@ -21,19 +14,10 @@ function formatSize(bytes: number): string {
 }
 
 export function DownloadSection() {
-  const [fileInfo, setFileInfo] = useState<FileInfo | null>(null)
-  const [loading, setLoading] = useState(true)
   const [adminMode, setAdminMode] = useState(false)
   const [uploading, setUploading] = useState(false)
   const [uploadMsg, setUploadMsg] = useState("")
   const fileInputRef = useRef<HTMLInputElement>(null)
-
-  useEffect(() => {
-    fetch(API_URL)
-      .then((r) => r.json())
-      .then(setFileInfo)
-      .finally(() => setLoading(false))
-  }, [])
 
   const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
@@ -80,46 +64,28 @@ export function DownloadSection() {
         {/* Download Card */}
         <Card className="bg-gray-900/60 border border-red-500/30 glow-border mb-8">
           <CardContent className="p-8">
-            {loading ? (
-              <div className="flex items-center justify-center gap-3 text-gray-400 py-4">
-                <Icon name="Loader2" size={24} className="animate-spin" />
-                <span className="font-space-mono">Загрузка информации...</span>
-              </div>
-            ) : fileInfo?.available ? (
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-                <div className="flex items-center gap-4">
-                  <div className="bg-red-500/20 p-4 rounded-xl">
-                    <Icon name="Shield" size={40} className="text-red-500" />
-                  </div>
-                  <div>
-                    <p className="text-white font-bold text-xl font-orbitron">{fileInfo.filename}</p>
-                    {fileInfo.size && (
-                      <p className="text-gray-400 font-space-mono text-sm">{formatSize(fileInfo.size)}</p>
-                    )}
-                    <div className="flex items-center gap-2 mt-1">
-                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                      <span className="text-green-400 text-sm font-space-mono">Готово к скачиванию</span>
-                    </div>
-                  </div>
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+              <div className="flex items-center gap-4">
+                <div className="bg-red-500/20 p-4 rounded-xl">
+                  <Icon name="Shield" size={40} className="text-red-500" />
                 </div>
-                <Button
-                  size="lg"
-                  className="bg-red-500 hover:bg-red-600 text-white font-orbitron text-lg px-10 py-6 pulse-button"
-                  onClick={() => window.open(fileInfo.download_url!, "_blank")}
-                >
-                  <Icon name="Download" size={20} className="mr-2" />
-                  Скачать
-                </Button>
-              </div>
-            ) : (
-              <div className="flex items-center justify-center gap-4 text-gray-500 py-4">
-                <Icon name="CloudOff" size={32} />
                 <div>
-                  <p className="text-white font-semibold font-orbitron">Файл ещё не загружен</p>
-                  <p className="text-gray-400 font-space-mono text-sm">Скоро появится — следите за обновлениями</p>
+                  <p className="text-white font-bold text-xl font-orbitron">MajesticGuard.rar</p>
+                  <div className="flex items-center gap-2 mt-1">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="text-green-400 text-sm font-space-mono">Готово к скачиванию</span>
+                  </div>
                 </div>
               </div>
-            )}
+              <a
+                href={DIRECT_DOWNLOAD_URL}
+                download
+                className="bg-red-500 hover:bg-red-600 text-white font-orbitron text-lg px-10 py-4 rounded-md pulse-button flex items-center gap-2 transition-colors duration-200"
+              >
+                <Icon name="Download" size={20} />
+                Скачать
+              </a>
+            </div>
           </CardContent>
         </Card>
 
